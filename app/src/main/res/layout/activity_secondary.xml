@@ -4,6 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cream_bkg"
     tools:context=".SecondaryActivity">
+
+    <Button
+        android:id="@+id/btnFood"
+        android:layout_width="256dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="@color/light_orange"
+        android:text="Comidas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/comidas"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+
+        />
+
+    <Button
+        android:id="@+id/btnDrink"
+        android:layout_width="256dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="114dp"
+        android:backgroundTint="@color/light_orange"
+        android:text="Bebidas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFood"
+        android:drawableLeft="@drawable/bebidas"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
