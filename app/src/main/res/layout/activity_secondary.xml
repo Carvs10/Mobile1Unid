@@ -5,40 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cream_bkg"
-    tools:context=".SecondaryActivity">
+    tools:context=".SecondaryActivity"
+    >
 
-    <Button
-        android:id="@+id/btnFood"
-        android:layout_width="256dp"
-        android:layout_height="168dp"
-        android:layout_marginTop="120dp"
-        android:backgroundTint="@color/light_orange"
-        android:text="Comidas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableLeft="@drawable/comidas"
-        android:textSize="24dp"
-        android:textColor="@color/black"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        />
+        <Button
+            android:id="@+id/btnFood"
+            android:layout_width="256dp"
+            android:layout_height="168dp"
+            android:backgroundTint="@color/light_orange"
+            android:drawableLeft="@drawable/comidas"
+            android:text="Comidas"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1"/>
 
-    <Button
-        android:id="@+id/btnDrink"
-        android:layout_width="256dp"
-        android:layout_height="168dp"
-        android:layout_marginTop="114dp"
-        android:backgroundTint="@color/light_orange"
-        android:text="Bebidas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFood"
-        android:drawableLeft="@drawable/bebidas"
-        android:textSize="24dp"
-        android:textColor="@color/black"
+        <Button
+            android:id="@+id/btnDrink"
+            android:layout_width="256dp"
+            android:layout_height="168dp"
+            android:layout_marginTop="64dp"
+            android:backgroundTint="@color/light_orange"
+            android:drawableLeft="@drawable/bebidas"
+            android:text="Bebidas"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFood"
+            android:layout_weight="1"/>
 
+    </LinearLayout>
 
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
