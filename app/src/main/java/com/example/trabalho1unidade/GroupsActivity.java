@@ -1,16 +1,18 @@
 package com.example.trabalho1unidade;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 public class GroupsActivity extends AppCompatActivity {
 
     Button btnFood, btnDrink;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,6 @@ public class GroupsActivity extends AppCompatActivity {
         btnFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent it = new Intent(getApplicationContext(), FoodsActivity.class);
                 startActivity(it);
             }
@@ -37,5 +38,26 @@ public class GroupsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    ////// ACTIVITY BAR ///////
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.price_menu, menu);
+        //TODO: Change total price value
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.goToCart:
+            case R.id.totalPrice:
+                Intent it = new Intent(getApplicationContext(), FinalActivity.class); //TODO: Enviar os dados
+                startActivity(it);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
