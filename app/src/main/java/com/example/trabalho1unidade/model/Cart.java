@@ -70,6 +70,7 @@ public class Cart {
     }
 
     public void loadCartFromIntentBundle(Bundle data){
+        products.clear();
         int cart_size = data.getInt("cart_size");
         for(int i = 0; i < cart_size; i++){
             this.addProduct((Product) data.getSerializable("product_"+i), data.getInt("quantity_"+i));
@@ -83,6 +84,7 @@ public class Cart {
             it.putExtra("product_"+i, this.getProducts().get(i).first);
             it.putExtra("quantity_"+i, this.getProducts().get(i).second);
         }
+        products.clear();
         return it;
     }
 }

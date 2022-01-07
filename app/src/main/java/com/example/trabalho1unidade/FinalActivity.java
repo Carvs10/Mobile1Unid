@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class FinalActivity extends AppCompatActivity {
 
+    Intent it;
     Cart cart;
 
     @Override
@@ -22,11 +23,17 @@ public class FinalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final);
 
         cart = new Cart();
-        Intent it = getIntent();
+        it = getIntent();
         Bundle data = it.getExtras();
         cart.loadCartFromIntentBundle(data);
 
         //TODO: Remove after debug
         Toast.makeText(getApplicationContext(), String.valueOf(cart.getTotalPrice()), Toast.LENGTH_SHORT).show();
+    }
+
+    public void finish() {
+        it = cart.saveCartToIntentBundle(it);
+        setResult(3, it);
+        super.finish();
     }
 }
