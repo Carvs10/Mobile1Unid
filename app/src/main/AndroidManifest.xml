@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trabalho1Unidade">
         <activity
-            android:name=".FourthActivity"
+            android:name=".DrinksActivity"
             android:exported="false" />
         <activity
-            android:name=".ThirdActivity"
+            android:name=".FoodsActivity"
             android:exported="false" />
         <activity
-            android:name=".SecondaryActivity"
+            android:name=".GroupsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

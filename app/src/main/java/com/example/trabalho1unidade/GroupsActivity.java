@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SecondaryActivity extends AppCompatActivity {
+public class GroupsActivity extends AppCompatActivity {
 
     Button btnFood, btnDrink;
 
@@ -15,7 +15,7 @@ public class SecondaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_secondary);
+        setContentView(R.layout.activity_groups);
 
         btnFood = findViewById(R.id.btnFood);
         btnDrink = findViewById(R.id.btnDrink);
@@ -24,7 +24,7 @@ public class SecondaryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent it = new Intent(getApplicationContext(), ThirdActivity.class);
+                Intent it = new Intent(getApplicationContext(), FoodsActivity.class);
                 startActivity(it);
             }
         });
@@ -32,7 +32,7 @@ public class SecondaryActivity extends AppCompatActivity {
         btnDrink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it2 = new Intent(getApplicationContext(), FourthActivity.class);
+                Intent it2 = new Intent(getApplicationContext(), DrinksActivity.class);
                 startActivity(it2);
             }
         });
