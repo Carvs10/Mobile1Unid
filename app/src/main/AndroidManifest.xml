@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trabalho1Unidade">
         <activity
+            android:name=".FinalActivity"
+            android:exported="true" />
+        <activity
             android:name=".DrinksActivity"
             android:exported="false" />
         <activity
