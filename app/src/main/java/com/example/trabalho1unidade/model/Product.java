@@ -1,6 +1,8 @@
 package com.example.trabalho1unidade.model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String name;
     private float price;
     private String image_id;    // File name

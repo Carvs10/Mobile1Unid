@@ -1,7 +1,12 @@
 package com.example.trabalho1unidade.model;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Pair;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Cart {
@@ -9,6 +14,11 @@ public class Cart {
 
     public Cart() {
         this.products = new ArrayList<Pair<Product, Integer>>();
+    }
+
+    public Cart(ArrayList<Pair<Product, Integer>> products) {
+        this.products = new ArrayList<Pair<Product, Integer>>();
+        this.products.addAll(products);
     }
 
     public int getQuantity(Product product) {
@@ -59,4 +69,20 @@ public class Cart {
         this.addProduct(product, new_quantity);
     }
 
+    public void loadCartFromIntentBundle(Bundle data){
+        int cart_size = data.getInt("cart_size");
+        for(int i = 0; i < cart_size; i++){
+            this.addProduct((Product) data.getSerializable("product_"+i), data.getInt("quantity_"+i));
+        }
+    }
+
+    public Intent saveCartToIntentBundle(Intent it){
+        int cart_size = this.getProducts().size();
+        it.putExtra("cart_size", cart_size);
+        for(int i = 0; i < cart_size; i++){
+            it.putExtra("product_"+i, this.getProducts().get(i).first);
+            it.putExtra("quantity_"+i, this.getProducts().get(i).second);
+        }
+        return it;
+    }
 }
