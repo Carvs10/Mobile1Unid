@@ -28,6 +28,9 @@ public class DrinksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
+
         cart = new Cart();
         it = getIntent();
         Bundle data = it.getExtras();
@@ -47,6 +50,12 @@ public class DrinksActivity extends AppCompatActivity {
 
 
     ////// ACTIVITY BAR ///////
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.price_menu, menu);

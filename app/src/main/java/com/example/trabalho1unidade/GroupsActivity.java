@@ -2,6 +2,7 @@ package com.example.trabalho1unidade;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -30,6 +31,9 @@ public class GroupsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groups);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
+
         cart = new Cart();
 
         btnFood = findViewById(R.id.btnFood);
@@ -56,6 +60,12 @@ public class GroupsActivity extends AppCompatActivity {
     }
 
     ////// ACTIVITY BAR ///////
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.price_menu, menu);

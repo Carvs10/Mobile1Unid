@@ -33,6 +33,9 @@ public class FinalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
+
         cart = new Cart();
         it = getIntent();
         Bundle data = it.getExtras();
@@ -81,6 +84,12 @@ public class FinalActivity extends AppCompatActivity {
 
         //TODO: Remove after debug
         Toast.makeText(getApplicationContext(), String.valueOf(cart.getTotalPrice()), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     public void finish() {
