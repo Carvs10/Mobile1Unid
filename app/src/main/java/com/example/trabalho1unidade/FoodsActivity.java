@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.trabalho1unidade.model.Cart;
@@ -23,10 +24,19 @@ public class FoodsActivity extends AppCompatActivity {
 
     Button btnBack;
 
+    String foodList[] = {"Pizza","Macarrao", "File", "Pastel", "Suco"};
+    int foodImgs[] =  {R.drawable.pizza, R.drawable.macarronada, R.drawable.file, R.drawable.pastel, R.drawable.sucos};
+
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foods);
+
+        listView = (ListView) findViewById(R.id.customLV);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs);
+        listView.setAdapter(customBaseAdapter);
 
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
