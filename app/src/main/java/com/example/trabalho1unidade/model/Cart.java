@@ -22,8 +22,14 @@ public class Cart {
     }
 
     public int getQuantity(Product product) {
+        System.out.println("========= TABELA ===========");
         for(Pair<Product, Integer> _product: this.products){
-            if(_product.first.getName() == product.getName()){ return _product.second; }
+            System.out.print(_product.first.getName() + "   " + _product.second);
+        }
+        System.out.println("============================");
+
+        for(Pair<Product, Integer> _product: this.products){
+            if(_product.first.getName().equals(product.getName())){return _product.second; }
         }
         return 0;
     }
@@ -50,7 +56,7 @@ public class Cart {
 
     public void addProduct(Product product, int quantity) {
         for(int i = 0; i < this.products.size(); i++){
-            if(this.products.get(i).first.getName() == product.getName()){this.products.remove(i); break;}
+            if(this.products.get(i).first.getName().equals(product.getName())){this.products.remove(i); break;}
         }
 
         this.products.add(new Pair<Product, Integer>(product, quantity));
@@ -58,7 +64,7 @@ public class Cart {
 
     public void removeProduct(Product product){
         for(int i = 0; i < this.products.size(); i++){
-            if(this.products.get(i).first.getName() == product.getName()){
+            if(this.products.get(i).first.getName().equals(product.getName())){
                 this.products.remove(i);
                 return;
             }
