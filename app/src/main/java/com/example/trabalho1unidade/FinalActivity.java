@@ -41,8 +41,6 @@ public class FinalActivity extends AppCompatActivity {
 
         ListView productList = (ListView) findViewById(R.id.productList);
 
-
-
         btnFinish = findViewById(R.id.btnFinish);
 
         finalPrice = findViewById(R.id.finalPrice);
@@ -50,11 +48,20 @@ public class FinalActivity extends AppCompatActivity {
         //populate listview
         String[] prodName = {"Pizza", "Macarrão", "Filé", "Pastel", "Salagadinhos, Amendoim", "Pringles", "Pão de Queijo"};
 
-
         cart = new Cart();
         it = getIntent();
         Bundle data = it.getExtras();
         cart.loadCartFromIntentBundle(data);
+
+        ArrayList<String> listName = new ArrayList<String>();
+        ArrayList<Integer> listQuantity = new ArrayList<Integer>();
+        ArrayList<Float> listTotalPrice = new ArrayList<Float>();
+        ArrayList<Pair<Product, Integer>> products = cart.getProducts();
+        for(Pair<Product, Integer> product : products){
+            listName.add(product.first.getName());
+            listQuantity.add(product.second);
+            listTotalPrice.add(product.first.getPrice() * product.second);
+        }
 
         ArrayAdapter<String> prodAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, prodName);
         productList.setAdapter(prodAdapter);
