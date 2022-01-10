@@ -28,7 +28,7 @@ public class InfoDigalogFragment extends DialogFragment implements DialogInterfa
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle("Desenvolvido por:");
-        builder.setMessage("João Victtor Carvalho de Luna\nMariana\nMatheus de Andrade Silva\nPedro Henrique Alves Cardoso");
+        builder.setMessage("João Victtor Carvalho de Luna\nMariana Medeiros Pires\nMatheus de Andrade Silva\nPedro Henrique Alves Cardoso");
 
         builder.setPositiveButton("Ver site", this);
         builder.setNegativeButton("Voltar", this);
