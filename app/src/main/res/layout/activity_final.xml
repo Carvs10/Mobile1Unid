@@ -13,7 +13,7 @@
         android:text="Fechar Conta"
         android:textSize="24dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
@@ -22,12 +22,12 @@
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="8dp"
         />
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="260dp"
         android:orientation="horizontal"
         android:background="@color/light_orange"
         >

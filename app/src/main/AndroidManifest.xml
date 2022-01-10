@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Trabalho1Unidade">
         <activity
             android:name=".CustomListView"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".FinalActivity"
             android:exported="true" />
