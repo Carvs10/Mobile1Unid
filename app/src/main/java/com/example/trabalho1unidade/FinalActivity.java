@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +24,10 @@ public class FinalActivity extends AppCompatActivity {
 
     Intent it;
     Cart cart;
-    private RecyclerView tableCart;
     public int numPeople = 0;
     private SeekBar seekPeople;
-    private TextView textPeople;
-
+    private TextView textPeople, finalPrice;
+    private Button btnFinish;
 
 
 
@@ -36,6 +39,11 @@ public class FinalActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
+        btnFinish = findViewById(R.id.btnFinish);
+
+        finalPrice = findViewById(R.id.finalPrice);
+
+        String[] prodName = {"coxinha, empadas, salgadinhos"};
         cart = new Cart();
         it = getIntent();
         Bundle data = it.getExtras();
@@ -46,19 +54,17 @@ public class FinalActivity extends AppCompatActivity {
         seekPeople = findViewById(R.id.seekBar);
         textPeople = findViewById(R.id.numbPeople);
 
-        // RecyclerView - Lista de Intens do Cart
-        tableCart = findViewById(R.id.tableCart);
 
+        btnFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        //Adapter
+                Intent it = new Intent(getApplicationContext(), MainActivity.class);
 
-        //RecyclerView Config
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        tableCart.setLayoutManager(layoutManager);
-        tableCart.setHasFixedSize(true);
-        //tableCart.setAdapter();
-
-
+                startActivity(it);
+                finishAffinity();
+            }
+        });
 
         //Seekbar function
        seekPeople.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -68,6 +74,11 @@ public class FinalActivity extends AppCompatActivity {
                 numPeople = progress;
                 String status = String.valueOf(numPeople);
                 textPeople.setText(status);
+
+                 double share = calculatePrice(numPeople);
+                 String finale = Double.toString(share);
+                 finalPrice.setText(finale);
+
            }
 
            @Override
@@ -79,12 +90,25 @@ public class FinalActivity extends AppCompatActivity {
            public void onStopTrackingTouch(SeekBar seekBar) {
 
            }
+
+
+
        });
 
 
         //TODO: Remove after debug
         Toast.makeText(getApplicationContext(), String.valueOf(cart.getTotalPrice()), Toast.LENGTH_SHORT).show();
     }
+
+    public double calculatePrice(int peopleSelected){
+
+        double price = 500.00;
+
+        double sharePrice = price / peopleSelected;
+
+        return sharePrice;
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
