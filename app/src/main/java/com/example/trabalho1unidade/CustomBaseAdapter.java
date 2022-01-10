@@ -5,8 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.trabalho1unidade.model.Product;
+
 
 public class CustomBaseAdapter extends BaseAdapter {
 
@@ -14,6 +19,8 @@ public class CustomBaseAdapter extends BaseAdapter {
     String listfood [];
     int listimgs [];
     LayoutInflater inflater;
+
+    public AdapterHandler adapterhandler;
 
     public CustomBaseAdapter(Context ct, String [] foodlist, int [] images){
         this.context = ct;
@@ -44,6 +51,16 @@ public class CustomBaseAdapter extends BaseAdapter {
         ImageView foodImg = (ImageView) convertView.findViewById(R.id.imageIcon);
         txtView.setText(listfood[position]);
         foodImg.setImageResource(listimgs[position]);
+        Button button = (Button) convertView.findViewById(R.id.buttonBack42);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CustomBaseAdapter.this.adapterhandler != null) {
+                    CustomBaseAdapter.this.adapterhandler.updateProduct(new Product("b", 4, "a", "a", "a"),3);
+                }
+                Toast.makeText(button.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
         return convertView;
 
     }

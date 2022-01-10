@@ -38,6 +38,19 @@ public class FoodsActivity extends AppCompatActivity {
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs);
         listView.setAdapter(customBaseAdapter);
 
+        customBaseAdapter.adapterhandler = new AdapterHandler() {
+            @Override
+            public void updateProduct(Product product, int quantidade) {
+                if(quantidade < 1){
+                    cart.removeProduct(product);
+                }
+                else{
+                    cart.addProduct(product, quantidade);
+                }
+                updateTotalPrice();
+            }
+        };
+
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
