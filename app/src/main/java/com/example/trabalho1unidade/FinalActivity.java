@@ -46,7 +46,7 @@ public class FinalActivity extends AppCompatActivity {
         finalPrice = findViewById(R.id.finalPrice);
 
         //populate listview
-        String[] prodName = {"Pizza", "Macarrão", "Filé", "Pastel", "Salagadinhos, Amendoim", "Pringles", "Pão de Queijo"};
+        //String[] prodName = {"Pizza", "Macarrão", "Filé", "Pastel", "Salagadinhos, Amendoim", "Pringles", "Pão de Queijo"};
 
         cart = new Cart();
         it = getIntent();
@@ -63,8 +63,9 @@ public class FinalActivity extends AppCompatActivity {
             listTotalPrice.add(product.first.getPrice() * product.second);
         }
 
-        ArrayAdapter<String> prodAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, prodName);
-        productList.setAdapter(prodAdapter);
+        BaseAdapter2 prodAdapter2 = new BaseAdapter2(getApplicationContext(), listName, listQuantity,listTotalPrice);
+        //ArrayAdapter<String> prodAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listName);
+        productList.setAdapter(prodAdapter2);
 
         //SeekBar for catch the number of people to share the bill
         seekPeople = findViewById(R.id.seekBar);
