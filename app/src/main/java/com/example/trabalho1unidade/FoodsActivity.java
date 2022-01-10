@@ -26,6 +26,7 @@ public class FoodsActivity extends AppCompatActivity {
 
     String foodList[] = {"Pizza","Macarrão", "Filé", "Pastel", "Suco"};
     String priceList[] = {"50", "30", "20", "5", "4"};
+    String quantList[] = {"01","01","01","01","01"};
     int foodImgs[] =  {R.drawable.pizza, R.drawable.macarronada, R.drawable.file, R.drawable.pastel, R.drawable.sucos};
 
     ListView listView;
@@ -35,8 +36,18 @@ public class FoodsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foods);
 
+        cart = new Cart();
+        it = getIntent();
+        Bundle data = it.getExtras();
+        cart.loadCartFromIntentBundle(data);
+
+        for (int i = 0; i < foodList.length; i++) {
+            quantList[i] = Integer.toString(cart.getQuantity(new Product(foodList[i], Float.parseFloat(priceList[i]), foodImgs[i], "Comida", "a")));
+
+        }
+
         listView = (ListView) findViewById(R.id.customLV);
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs, priceList);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs, priceList, quantList);
         listView.setAdapter(customBaseAdapter);
 
         customBaseAdapter.adapterhandler = new AdapterHandler() {
@@ -55,17 +66,13 @@ public class FoodsActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
-        cart = new Cart();
-        it = getIntent();
-        Bundle data = it.getExtras();
-        cart.loadCartFromIntentBundle(data);
 
         btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO: Remove after test
-                Product a = new Product("b", 4, "a", "a", "a");
+                Product a = new Product("b", 4, 2, "a", "a");
                 cart.addProduct(a, 1);
                 updateTotalPrice();
             }
