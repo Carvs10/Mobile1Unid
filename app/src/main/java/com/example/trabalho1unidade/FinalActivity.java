@@ -39,16 +39,25 @@ public class FinalActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
+        ListView productList = (ListView) findViewById(R.id.productList);
+
+
+
         btnFinish = findViewById(R.id.btnFinish);
 
         finalPrice = findViewById(R.id.finalPrice);
 
-        String[] prodName = {"coxinha, empadas, salgadinhos"};
+        //populate listview
+        String[] prodName = {"Pizza", "Macarrão", "Filé", "Pastel", "Salagadinhos, Amendoim", "Pringles", "Pão de Queijo"};
+
+
         cart = new Cart();
         it = getIntent();
         Bundle data = it.getExtras();
         cart.loadCartFromIntentBundle(data);
 
+        ArrayAdapter<String> prodAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, prodName);
+        productList.setAdapter(prodAdapter);
 
         //SeekBar for catch the number of people to share the bill
         seekPeople = findViewById(R.id.seekBar);
@@ -102,7 +111,7 @@ public class FinalActivity extends AppCompatActivity {
 
     public double calculatePrice(int peopleSelected){
 
-        double price = 500.00;
+        double price = cart.getTotalPrice();
 
         double sharePrice = price / peopleSelected;
 

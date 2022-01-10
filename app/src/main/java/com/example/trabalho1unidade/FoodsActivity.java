@@ -24,7 +24,7 @@ public class FoodsActivity extends AppCompatActivity {
 
     Button btnBack;
 
-    String foodList[] = {"Pizza","Macarrao", "File", "Pastel", "Suco"};
+    String foodList[] = {"Pizza","Macarrão", "Filé", "Pastel", "Suco"};
     int foodImgs[] =  {R.drawable.pizza, R.drawable.macarronada, R.drawable.file, R.drawable.pastel, R.drawable.sucos};
 
     ListView listView;
