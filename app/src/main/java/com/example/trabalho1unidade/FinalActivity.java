@@ -26,7 +26,7 @@ public class FinalActivity extends AppCompatActivity {
     Cart cart;
     public int numPeople = 0;
     private SeekBar seekPeople;
-    private TextView textPeople, finalPrice;
+    private TextView textPeople, finalPrice, finalTotalPrice;
     private Button btnFinish;
 
 
@@ -43,6 +43,7 @@ public class FinalActivity extends AppCompatActivity {
 
         btnFinish = findViewById(R.id.btnFinish);
 
+        finalTotalPrice = findViewById(R.id.finalTotalPrice);
         finalPrice = findViewById(R.id.finalPrice);
 
         //populate listview
@@ -71,6 +72,8 @@ public class FinalActivity extends AppCompatActivity {
         seekPeople = findViewById(R.id.seekBar);
         textPeople = findViewById(R.id.numbPeople);
 
+        finalTotalPrice.setText("R$ " + cart.getTotalPrice());
+        finalPrice.setText("R$ " + cart.getTotalPrice());
 
         btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +97,7 @@ public class FinalActivity extends AppCompatActivity {
 
                  double share = calculatePrice(numPeople);
                  String finale = Double.toString(share);
-                 finalPrice.setText(finale);
+                 finalPrice.setText("R$ " + finale);
 
            }
 
@@ -112,9 +115,6 @@ public class FinalActivity extends AppCompatActivity {
 
        });
 
-
-        //TODO: Remove after debug
-        Toast.makeText(getApplicationContext(), String.valueOf(cart.getTotalPrice()), Toast.LENGTH_SHORT).show();
     }
 
     public double calculatePrice(int peopleSelected){

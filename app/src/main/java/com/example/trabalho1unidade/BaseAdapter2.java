@@ -21,7 +21,7 @@ public class BaseAdapter2 extends BaseAdapter {
 
     public BaseAdapter2(Context ctx, ArrayList<String> prodName, ArrayList<Integer> quantity, ArrayList<Float>price){
         this.context = ctx;
-        this.nameprod = prodName;
+        this.nameprod = new ArrayList<String>(prodName);
         this.quantities = quantity;
         this.prices = price;
         inflater = LayoutInflater.from(ctx);
@@ -44,13 +44,13 @@ public class BaseAdapter2 extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.activity_custom_list_view, null);
+        convertView = inflater.inflate(R.layout.activity_list_view2, null);
         TextView nameView = (TextView) convertView.findViewById(R.id.listProdName);
         TextView quantView = (TextView) convertView.findViewById(R.id.listProdQuantity);
         TextView priceView = (TextView) convertView.findViewById(R.id.listProdPrice);
-        nameView.setText(nameprod[position]);
-        quantView.setText(quantities[position]);
-        priceView.setText(prices[position].toString());
+        nameView.setText(nameprod.get(position));
+        quantView.setText(Integer.toString(quantities.get(position)));
+        priceView.setText("R$ " + Float.toString(prices.get(position)));
 
         return convertView;
     }
