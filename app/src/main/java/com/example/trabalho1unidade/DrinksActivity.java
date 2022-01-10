@@ -40,7 +40,7 @@ public class DrinksActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Product a = new Product("c", 1, "a", "a", "a");
+                Product a = new Product("c", 1, 2, "a", "a");
                 cart.addProduct(a, 3);
                 updateTotalPrice();
             }

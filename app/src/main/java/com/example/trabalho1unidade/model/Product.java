@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private String name;
     private float price;
-    private String image_id;    // File name
+    private int image_id;    // File name
     private String type;        // Food or Drink
     private String category;
 
-    public Product(String name, float price, String image_id, String type, String category) {
+    public Product(String name, float price, int image_id, String type, String category) {
         this.name = name;
         this.price = price;
         this.image_id = image_id;
@@ -33,11 +33,11 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public String getImage_id() {
+    public int getImage_id() {
         return image_id;
     }
 
-    public void setImage_id(String image_id) {
+    public void setImage_id(int image_id) {
         this.image_id = image_id;
     }
 
