@@ -6,130 +6,158 @@
     android:backgroundTint="@color/cream_bkg"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inder"
-        android:text="Fechar Conta"
-        android:textSize="24dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Itens"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        />
-    
+    <!--    Título-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:orientation="horizontal"
-        android:background="@color/light_orange"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inder"
+            android:text="Fechar Conta"
+            android:textSize="24dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--    Listagem de itens-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="3"
         >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Itens"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            />
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/productList"
             android:choiceMode="none"
+            android:background="@color/light_orange"
             />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rachar a conta"
-        android:textSize="18sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecione o número de pessoas:"
-        android:layout_marginLeft="20dp"
-        />
-
-
+    <!--    Seekbar do rachar a conta-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        >
-        <SeekBar
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:id="@+id/seekBar"
-            android:layout_marginRight="20dp"
-            android:background="@color/light_orange"
-            android:thumbTint="@color/cream_bkg"
-            android:min="1"
-            android:max="30"
-            android:progressTint="@color/cream_bkg"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rachar a conta"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
             />
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/light_orange"
-            android:text="1"
-            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione o número de pessoas:"
+            android:layout_marginLeft="20dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:id="@+id/numbPeople"
-            />
+            >
+            <SeekBar
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:id="@+id/seekBar"
+                android:layout_marginRight="20dp"
+                android:background="@color/light_orange"
+                android:thumbTint="@color/cream_bkg"
+                android:min="1"
+                android:max="30"
+                android:progressTint="@color/cream_bkg"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/light_orange"
+                android:text="1"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:id="@+id/numbPeople"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
+    <!--    Total por Pessoa-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@color/light_orange"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="30dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total por pessoa"
-            android:textColor="@color/dark_green"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:padding="15dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="10,00"
-            android:textColor="@color/dark_green"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:id="@+id/finalPrice"
-            />
-
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/light_orange"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total por pessoa"
+                android:textColor="@color/dark_green"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:padding="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="10,00"
+                android:textColor="@color/dark_green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:id="@+id/finalPrice"
+                />
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:text="Finalizar"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/btnFinish"
-
-        />
+<!--    Botão finalizar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:text="Finalizar"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/btnFinish"/>
+    </LinearLayout>
 
 </LinearLayout>
