@@ -17,15 +17,17 @@ public class CustomBaseAdapter extends BaseAdapter {
 
     Context context;
     String listfood [];
+    String listPrices[];
     int listimgs [];
     LayoutInflater inflater;
 
     public AdapterHandler adapterhandler;
 
-    public CustomBaseAdapter(Context ct, String [] foodlist, int [] images){
+    public CustomBaseAdapter(Context ct, String [] foodlist, int [] images, String [] prices){
         this.context = ct;
         this.listfood = foodlist;
         this.listimgs = images;
+        this.listPrices = prices;
         inflater = LayoutInflater.from(ct);
     }
 
@@ -49,16 +51,28 @@ public class CustomBaseAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.activity_custom_list_view, null);
         TextView txtView = (TextView) convertView.findViewById(R.id.textView);
         ImageView foodImg = (ImageView) convertView.findViewById(R.id.imageIcon);
+        TextView priceView = (TextView) convertView.findViewById(R.id.priceView);
+        priceView.setText(listPrices[position]);
         txtView.setText(listfood[position]);
         foodImg.setImageResource(listimgs[position]);
-        Button button = (Button) convertView.findViewById(R.id.buttonBack42);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonplus = (Button) convertView.findViewById(R.id.buttonBack42);
+        buttonplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (CustomBaseAdapter.this.adapterhandler != null) {
                     CustomBaseAdapter.this.adapterhandler.updateProduct(new Product("b", 4, "a", "a", "a"),3);
                 }
-                Toast.makeText(button.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(buttonplus.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button buttonminus = (Button) convertView.findViewById(R.id.buttonBack24);
+        buttonminus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CustomBaseAdapter.this.adapterhandler != null) {
+                    CustomBaseAdapter.this.adapterhandler.updateProduct(new Product("a", 4, "a", "a", "a"),3);
+                }
+                Toast.makeText(buttonminus.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
             }
         });
         return convertView;

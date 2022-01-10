@@ -16,9 +16,26 @@
         android:id="@+id/textView"
         android:gravity="center"
         android:text="exemple"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/priceView"
+        android:gravity="center"
+        android:text="exemple"/>
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="Voltar"
+        android:text="Plus"
         android:id="@+id/buttonBack42"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contadorView"
+        android:gravity="center"
+        android:text="00"/>
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Minus"
+        android:id="@+id/buttonBack24"/>
 </LinearLayout>

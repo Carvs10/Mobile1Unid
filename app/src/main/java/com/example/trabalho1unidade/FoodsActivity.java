@@ -25,6 +25,7 @@ public class FoodsActivity extends AppCompatActivity {
     Button btnBack;
 
     String foodList[] = {"Pizza","Macarrão", "Filé", "Pastel", "Suco"};
+    String priceList[] = {"50", "30", "20", "5", "4"};
     int foodImgs[] =  {R.drawable.pizza, R.drawable.macarronada, R.drawable.file, R.drawable.pastel, R.drawable.sucos};
 
     ListView listView;
@@ -35,7 +36,7 @@ public class FoodsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_foods);
 
         listView = (ListView) findViewById(R.id.customLV);
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs, priceList);
         listView.setAdapter(customBaseAdapter);
 
         customBaseAdapter.adapterhandler = new AdapterHandler() {
