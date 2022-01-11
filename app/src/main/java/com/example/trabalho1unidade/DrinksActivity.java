@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.trabalho1unidade.model.Cart;
@@ -23,29 +24,48 @@ public class DrinksActivity extends AppCompatActivity {
 
     Button btnBack;
 
+    String foodList[] = {"Cerveja","Coca", "Limonada", "Café", "Água"};
+    String priceList[] = {"8", "4", "4", "6", "2"};
+    String quantList[] = {"01","01","01","01","01"};
+    int foodImgs[] =  {R.drawable.cerveja, R.drawable.coca, R.drawable.sucos, R.drawable.cafe, R.drawable.agua};
+
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks);
-
-        assert getSupportActionBar() != null;   //null check
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
         cart = new Cart();
         it = getIntent();
         Bundle data = it.getExtras();
         cart.loadCartFromIntentBundle(data);
 
-        btnBack = findViewById(R.id.btnBack2);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        for (int i = 0; i < foodList.length; i++) {
+            quantList[i] = Integer.toString(cart.getQuantity(new Product(foodList[i], Float.parseFloat(priceList[i]), foodImgs[i], "Comida", "a")));
+
+        }
+
+        listView = (ListView) findViewById(R.id.customLV);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), foodList, foodImgs, priceList, quantList);
+        listView.setAdapter(customBaseAdapter);
+
+        customBaseAdapter.adapterhandler = new AdapterHandler() {
             @Override
-            public void onClick(View v) {
-                Product a = new Product("c", 1, 2, "a", "a");
-                cart.addProduct(a, 3);
+            public void updateProduct(Product product, int quantidade) {
+                if(quantidade < 1){
+                    cart.removeProduct(product);
+                }
+                else{
+                    cart.addProduct(product, quantidade);
+                }
                 updateTotalPrice();
             }
-//            public void onClick(View v) { finish(); }
-        });
+        };
+
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
+
     }
 
 

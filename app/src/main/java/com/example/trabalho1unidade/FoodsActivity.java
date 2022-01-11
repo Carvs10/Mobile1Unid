@@ -24,10 +24,10 @@ public class FoodsActivity extends AppCompatActivity {
 
     Button btnBack;
 
-    String foodList[] = {"Pizza","Macarrão", "Filé", "Pastel", "Suco"};
+    String foodList[] = {"Pizza","Macarrão", "Filé", "Pastel", "Empada"};
     String priceList[] = {"50", "30", "20", "5", "4"};
     String quantList[] = {"01","01","01","01","01"};
-    int foodImgs[] =  {R.drawable.pizza, R.drawable.macarronada, R.drawable.file, R.drawable.pastel, R.drawable.sucos};
+    int foodImgs[] =  {R.drawable.pizza, R.drawable.macarronada, R.drawable.file, R.drawable.pastel, R.drawable.empada};
 
     ListView listView;
 
@@ -66,18 +66,6 @@ public class FoodsActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
-
-        btnBack = findViewById(R.id.buttonBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: Remove after test
-                Product a = new Product("b", 4, 2, "a", "a");
-                cart.addProduct(a, 1);
-                updateTotalPrice();
-            }
-//            public void onClick(View v) { finish(); }
-        });
     }
 
     ////// ACTIVITY BAR ///////

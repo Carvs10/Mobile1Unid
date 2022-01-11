@@ -7,17 +7,6 @@
     android:background="@color/cream_bkg"
     tools:context=".FoodsActivity">
 
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="77dp"
-        android:layout_height="42dp"
-        android:text="Voltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908" />
-
     <ListView
         android:id="@+id/customLV"
         android:layout_width="match_parent"

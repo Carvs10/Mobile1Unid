@@ -7,13 +7,15 @@
     android:background="@color/cream_bkg"
     tools:context=".DrinksActivity">
 
-    <Button
-        android:id="@+id/btnBack2"
-        android:layout_width="189dp"
-        android:layout_height="227dp"
-        android:text="Button"
+    <ListView
+        android:id="@+id/customLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />'
 </androidx.constraintlayout.widget.ConstraintLayout>

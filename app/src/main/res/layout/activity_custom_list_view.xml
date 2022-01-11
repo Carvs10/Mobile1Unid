@@ -4,38 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomListView">
+    tools:context=".CustomListView"
+    android:textColor="@color/black"
+    android:textSize="18dp">
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/imageIcon"/>
+        android:id="@+id/imageIcon"
+        android:layout_marginRight="15dp"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:gravity="center"
-        android:text="exemple"/>
+        android:text="exemple"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/priceView"
         android:gravity="center"
-        android:text="exemple"/>
+        android:text="exemple"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="$"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
     <Button
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
-        android:text="Plus"
-        android:id="@+id/buttonBack42"/>
+        android:text="+"
+        android:id="@+id/buttonBack42"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/light_orange"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/contadorView"
         android:gravity="center"
-        android:text="00"/>
+        android:text="00"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"/>
+
     <Button
-        android:layout_width="50dp"
+        android:id="@+id/buttonBack24"
+        android:layout_width="40dp"
         android:layout_height="50dp"
-        android:text="Minus"
-        android:id="@+id/buttonBack24"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="-"
+        android:backgroundTint="@color/light_orange"/>
 </LinearLayout>

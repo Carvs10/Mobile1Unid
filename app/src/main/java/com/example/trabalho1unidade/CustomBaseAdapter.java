@@ -68,7 +68,7 @@ public class CustomBaseAdapter extends BaseAdapter {
                     quantList[position] = Integer.toString(va);
                     CustomBaseAdapter.this.adapterhandler.updateProduct(new Product(listfood[position], Float.parseFloat(listPrices[position]), listimgs[position], "Comida", "a"), Integer.parseInt(quantList[position]));
                 }
-                Toast.makeText(buttonplus.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(buttonplus.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
                 contadorView.setText(quantList[position]);
             }
         });
@@ -78,9 +78,11 @@ public class CustomBaseAdapter extends BaseAdapter {
             public void onClick(View v) {
                 if (CustomBaseAdapter.this.adapterhandler != null) {
                     int va = Integer.parseInt(quantList[position]) - 1;
+                    quantList[position] = Integer.toString(va);
                     CustomBaseAdapter.this.adapterhandler.updateProduct(new Product(listfood[position], Float.parseFloat(listPrices[position]), listimgs[position], "Comida", "a"),Integer.parseInt(quantList[position]));
                 }
-                Toast.makeText(buttonminus.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(buttonminus.getContext(), "button was clickde" + position, Toast.LENGTH_SHORT).show();
+                contadorView.setText(quantList[position]);
             }
         });
         return convertView;
